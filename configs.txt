@@ -1,0 +1,4 @@
+sender: The Palo Alto Bridge Center
+subject: Congratulations, {member.new_rank}!
+website: www.paloaltobridge.org
+csv_file_path: U503 Txns 10-31-2021.csv

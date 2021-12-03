@@ -1,0 +1,1 @@
+We are excited to inform you that you are now eligible to join our unit's <em>mentor-mentee program</em> You are a {member.new_rank}.
