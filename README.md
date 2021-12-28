@@ -3,8 +3,8 @@
 ---
 
 ### Purpose
-<b>Rank Emails:</b> Automates email sending for members who achieve new ranks each month. This program sends an email to ALL
-people who achieve a new rank. If there are not emails for ALL ranks, the program will crash. 
+<b>Rank Emails:</b> Automates email sending for members who achieve certain new ranks each month. It is used to advertise
+the mentor/mentee program. 
 
 ---
 

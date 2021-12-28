@@ -29,12 +29,6 @@ class EmailConfigs:
         self.csv_file = csv_file
         self.email_texts_path = email_texts_path
 
-    # retrieves the text for a rank message given the file name (which is FirstWordOfRank)
-    def get_rank_message_text(self, rank_name):
-        file_name = self.email_texts_path + "/" + rank_name + ".txt"
-        with open(file_name, 'r') as msg:
-            return msg.read()
-
 
 # sends any email
 def send_email(msg):
