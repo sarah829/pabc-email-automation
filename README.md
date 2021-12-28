@@ -6,6 +6,8 @@
 <b>Rank Emails:</b> Automates email sending for members who achieve certain new ranks each month. It is used to advertise
 the mentor/mentee program. 
 
+*Note:* The "active" functions are currently commented out to avoid accidental use. Un-comment them out in `rank_emails.py` to use.
+
 ---
 
 ### Configuration
