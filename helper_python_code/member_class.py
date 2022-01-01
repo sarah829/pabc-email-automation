@@ -13,7 +13,7 @@ Date         Editor          Action
 class Member:
     def __init__(self, title=" ", first_name="", last_name="", new_rank="", email=""):
         self.title = title
-        if title != " ":
+        if title.strip() != "":
             self.title = title + ". "
         self.first_name = first_name
         self.last_name = last_name
