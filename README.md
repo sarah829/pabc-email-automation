@@ -6,7 +6,8 @@
 <b>Rank Emails:</b> Automates email sending for members who achieve certain new ranks each month. It is used to advertise
 the mentor/mentee program. 
 
-*Note:* The "active" functions are currently commented out to avoid accidental use. Un-comment them out in `rank_emails.py` to use.
+*Note:* The main function must be un-commented out in `rank_email_driver.py` in order to use. It is commented out to prevent
+accidental use.
 
 ---
 
@@ -42,7 +43,9 @@ Body text for the emails is in the folder `ranks_email_texts`. Texts must be nam
 Adjust the style of the email in `template.html` by updating the inline CSS stylesheet.
 
 `body.html` contains the shell of the email with the text that is in all emails regardless of rank. 
-This includes the greeting and the closing of the email. 
+This includes the greeting and the closing of the email. As well as "Congratulations, <new rank>!"
+
+Thus, DO NOT INCLUDE those components in the Rank.txt files
 
 See the last section on inserting specific member information in text. 
 
@@ -50,7 +53,10 @@ See the last section on inserting specific member information in text.
 
 ### Running the Program
 
-To use, just run the script `rank_email_driver.py`. (Call `python3 rank_email_driver.py` or `python rank_email_driver.py` depending on your Python settings from the command line.)
+To use: Open `rank_email_driver.py`. Un-comment out the indicated line (delete the pound sign). 
+Then, run the script `rank_email_driver.py`. 
+(Call `python3 rank_email_driver.py` or `python rank_email_driver.py` depending on your Python settings.) 
+To run a program, type it into the command line (on Mac, called Terminal). 
 
 For testing, use `rank_email_testing_driver.py`. 
 In this file, set `YOUR_EMAIL` to your email. 

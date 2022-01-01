@@ -15,22 +15,21 @@ import csv
 
 from helper_python_code import member_class, send_emails
 
-"""
+
 def make_members(csv_file_address):
-    ""
+    """
     This takes a file with member data and creates a list of Member objects. 
     :param csv_file_address: address from home directory for csv w/ member info
-    ""
+    """
     members = []
     with open(csv_file_address, mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for line in csv_reader:
             if line["Transaction Type"].split()[-1] == "Master":
                 rank = " ".join(line["Transaction Type"].split()[1:])
-                member = Member(line["Title"], line["First Name"], line["Last Name"], rank, line["Email Address"])
+                member = member_class.Member(line["Title"], line["First Name"], line["Last Name"], rank, line["Email Address"])
                 members.append(member)
     return members
-"""
 
 
 # Same as above except all email fields are replaced with test_email
@@ -54,7 +53,7 @@ def make_members_testing(csv_file_address, test_email):
 def get_rank_email(configs, member, template, template_body):
     """
     Gets the email for a certain rank, creates an email using the given configs
-    and member.
+    and member. If there is an Other.txt doc in the ranks file, it uses that.
     Returns an EmailMessage object. If the rank is invalid, none is returned
     :param configs: An EmailConfigs object
     :param member: A Member object, will be the recipient
@@ -68,7 +67,11 @@ def get_rank_email(configs, member, template, template_body):
         with open(file_name, 'r') as f:
             message_text = f.read()
     except IOError:
-        return None  # rank was invalid, no message
+        try:
+            with open(configs.email_texts_path + "/Other.txt") as f:
+                message_text = f.read()
+        except IOError:  # no "Other.txt" file present, invalid rank
+            return None
     message_text = message_text.format(**locals())  # inserts member-specific info
     # build email
     msg = EmailMessage()
@@ -80,15 +83,15 @@ def get_rank_email(configs, member, template, template_body):
     return msg
 
 
-"""
-def send_all_rank_emails(configs_file):
-    ""Reads member data and configurations and sends all emails. This is the
+def send_all_rank_emails(configs_file, ranks="all"):
+    """
+    Reads member data and configurations and sends all emails. This is the
     driver function in the program.
     Returns the number of emails that failed to send
     :param configs_file: name of configs file
     :param ranks: Specifies which ranks emails are to be sent to. This should
       be a **list** of strings unless the word "all".
-    ""
+    """
     configs = send_emails.retrieve_configs(configs_file)
     members = make_members(configs.csv_file)
     with open("template.html", 'r') as template_file:
@@ -106,7 +109,6 @@ def send_all_rank_emails(configs_file):
             else:
                 send_emails.send_email(email)
     return failures
-"""
 
 
 def send_all_rank_emails_testing(configs_file, ranks="all", test_email="email@gmail.com"):

@@ -14,6 +14,8 @@ import rank_emails
 YOUR_EMAIL = "youremail@domain.com"
 
 if __name__ == "__main__":
-    rankings = ["Club", "Sectional", "Regional", "NABC"]
+    # rankings = ["Club", "Sectional", "Regional", "NABC"]
+    rankings = "all"
+    rankings = "Ruby"
     failed = rank_emails.send_all_rank_emails_testing("configs.txt", rankings, YOUR_EMAIL)
     print("Finished sending emails.", failed, "message(s) failed to send.")
